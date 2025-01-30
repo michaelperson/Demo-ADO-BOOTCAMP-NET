@@ -1,4 +1,5 @@
 ﻿using Bootcamp.Net.ADO.APP;
+using GameManager;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
@@ -12,8 +13,8 @@ while (continuer)
                       "0. Quitter");
     string choix = Console.ReadLine();
     Console.Clear();
-
-
+    GameManagerFactory gf = new GameManagerFactory();
+    GameCenter.dBDataManager = gf.CreateDataManager(GameManager.Enumerations.DbManagerType.SqlServer, "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GameCenter;Integrated Security=True;Connect Timeout=60;Encrypt=False;Trust Server Certificate=False");
     switch(choix)
     {
         case "0":
